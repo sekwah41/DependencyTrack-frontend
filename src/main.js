@@ -2,9 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
-import App from './App';
+import App from './App.vue';
 import router from './router';
 import i18n from './i18n';
 import './validation';
@@ -19,18 +18,26 @@ import api from './shared/api.json';
 import oidc from './shared/oidc.json';
 import version from './version';
 import { getContextPath } from './shared/utils';
+import { createCompatVue } from '@vue/compat';
 
-Vue.use(BootstrapVue);
-Vue.use(VueAxios, axios);
-Vue.use(VueToastr, {
+const Vue = createCompatVue();
+
+const app = createApp(App);
+
+app.use(router).use(i18n);
+
+app.use(VueAxios, axios);
+app.use(vueDebounce, { lock: false, listenTo: 'input', defaultTime: '750ms' });
+app.use(VueToastr, {
   defaultTimeout: 5000,
   defaultProgressBar: false,
   defaultProgressBarValue: 0,
   defaultPosition: 'toast-top-right',
   defaultCloseOnHover: false,
 });
-Vue.use(vueDebounce, { defaultTime: '750ms' });
-Vue.use(VuePageTitle, { prefix: 'Dependency-Track -', router });
+app.use(VuePageTitle, { prefix: 'Dependency-Track -', router });
+
+Vue.use(BootstrapVue);
 
 Vue.prototype.$api = api;
 Vue.prototype.$oidc = oidc;
@@ -87,13 +94,5 @@ function createVueApp() {
 
   Vue.prototype.$version = version;
 
-  new Vue({
-    el: '#app',
-    router,
-    template: '<App/>',
-    components: {
-      App,
-    },
-    i18n,
-  });
+  app.mount("#app")
 }
