@@ -12,9 +12,9 @@
   },
   "scripts": {
     "start": "npm run serve",
-    "serve": "npm run prebuild && cross-env NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve",
+    "serve": "npm run prebuild && cross-env NODE_OPTIONS=--openssl-legacy-provider vite",
     "prebuild": "cross-env NODE_OPTIONS=--openssl-legacy-provider node update-embedded-version.js",
-    "build": "npm run prebuild && cross-env NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build",
+    "build": "npm run prebuild && cross-env NODE_OPTIONS=--openssl-legacy-provider vite build",
     "eslint": "eslint . --ext .js,.vue,.json,.md,.yaml --report-unused-disable-directives",
     "eslint-fix": "eslint --ext .js,.vue,.json,.md,.yaml --fix . --report-unused-disable-directives",
     "prettier": "prettier --check --cache '**/*.{js,vue,json,md,yaml}'",
@@ -47,6 +47,7 @@
     "showdown-htmlescape": "0.1.9",
     "simple-line-icons": "2.5.5",
     "vee-validate": "3.4.15",
+    "vite": "^5.2.8",
     "vue": "2.7.16",
     "vue-axios": "3.5.2",
     "vue-bootstrap-toggle": "1.1.4",
@@ -67,6 +68,7 @@
     "@babel/eslint-parser": "7.24.1",
     "@cyclonedx/cyclonedx-npm": "1.16.2",
     "@cyclonedx/webpack-plugin": "2.0.2",
+    "@vitejs/plugin-vue2": "^2.3.1",
     "@vue/babel-helper-vue-jsx-merge-props": "1.4.0",
     "@vue/babel-preset-jsx": "1.4.0",
     "@vue/cli-plugin-babel": "5.0.8",
@@ -84,6 +86,7 @@
     "sass": "1.72.0",
     "sass-loader": "8.0.2",
     "uuid": "9.0.1",
+    "vite-plugin-copy": "0.1.6",
     "vue-template-compiler": "2.7.16"
   },
   "overrides": {
