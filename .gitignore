@@ -29,3 +29,6 @@ src/version.json
 # IntelliJ
 .idea/*
 !.idea/icon.svg
+
+bom.json
+bom.xml
