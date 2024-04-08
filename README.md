@@ -63,7 +63,7 @@ npm run bom
 
 ## Development Setup
 
-In order to test with a Dependency-Track instance, the `.env.development` file needs to be modified and the `VUE_APP_SERVER_URL` property updated to
+In order to test with a Dependency-Track instance, the `.env.development` file needs to be modified and the `VITE_APP_SERVER_URL` property updated to
 reflect the base URL of a Dependency-Track server.
 
 ## Deployment

@@ -4,7 +4,7 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
-import App from './App';
+import App from './App.vue';
 import router from './router';
 import i18n from './i18n';
 import './validation';
