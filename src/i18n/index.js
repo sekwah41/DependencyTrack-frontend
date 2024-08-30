@@ -1,10 +1,12 @@
 import { createI18n } from 'vue-i18n';
 
 function loadLocaleMessages() {
-  const locales = import.meta.glob('./locales/*.json', { eager: true });
+  // import default is needed otherwise 404 will be missing as well as it won't be the raw json reference
+  const locales = import.meta.glob('./locales/*.json', { eager: true, import: 'default'});
   const messages = {};
   for (const [path, locale] of Object.entries(locales)) {
     const matched = path.match(/\/locales\/([A-Za-z0-9-_]+)\.json$/);
+
     if (matched && matched.length > 1) {
       const localeKey = matched[1];
       messages[localeKey] = locale;
@@ -47,14 +49,19 @@ function matchLocale(requestedLocale) {
   return 'en';
 }
 
-const i18n = createI18n({
+const translationConfig = {
+  legacy: false,
   locale: matchLocale(
     (localStorage && localStorage.getItem('Locale')) ||
-      navigator.language ||
-      navigator.userLanguage,
+    navigator.language ||
+    navigator.userLanguage,
   ),
   fallbackLocale: import.meta.env.VITE_VUE_APP_I18N_FALLBACK_LOCALE || 'en',
   messages: localeMessages,
-});
+};
+
+console.log(translationConfig);
+
+const i18n = createI18n(translationConfig);
 
 export default i18n;
