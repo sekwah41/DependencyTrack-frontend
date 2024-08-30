@@ -23,12 +23,15 @@ const LicenseList = () => import('@/views/portfolio/licenses/LicenseList.vue');
 const PolicyManagement = () => import('@/views/policy/PolicyManagement.vue');
 const Project = () => import('@/views/portfolio/projects/Project.vue');
 
-const Administration = () => import('@/views/administration/Administration.vue');
-const General = () => import('@/views/administration/configuration/General.vue');
+const Administration = () =>
+  import('@/views/administration/Administration.vue');
+const General = () =>
+  import('@/views/administration/configuration/General.vue');
 const BomFormats = () =>
   import('@/views/administration/configuration/BomFormats.vue');
 const Email = () => import('@/views/administration/configuration/Email.vue');
-const Jira = () => import('@/views/administration/configuration/JiraConfig.vue');
+const Jira = () =>
+  import('@/views/administration/configuration/JiraConfig.vue');
 const InternalComponents = () =>
   import('@/views/administration/configuration/InternalComponents.vue');
 const TaskScheduler = () =>
@@ -56,11 +59,13 @@ const VulnSourceOSVAdvisories = () =>
   import('@/views/administration/vuln-sources/VulnSourceOSVAdvisories.vue');
 
 const Cargo = () => import('@/views/administration/repositories/Cargo.vue');
-const Composer = () => import('@/views/administration/repositories/Composer.vue');
+const Composer = () =>
+  import('@/views/administration/repositories/Composer.vue');
 const Cpan = () => import('@/views/administration/repositories/Cpan.vue');
 const Gem = () => import('@/views/administration/repositories/Gem.vue');
 const GitHub = () => import('@/views/administration/repositories/GitHub.vue');
-const GoModules = () => import('@/views/administration/repositories/GoModules.vue');
+const GoModules = () =>
+  import('@/views/administration/repositories/GoModules.vue');
 const Hackage = () => import('@/views/administration/repositories/Hackage.vue');
 const Hex = () => import('@/views/administration/repositories/Hex.vue');
 const Maven = () => import('@/views/administration/repositories/Maven.vue');
@@ -102,7 +107,8 @@ const License = () => import('@/views/portfolio/licenses/License.vue');
 
 // Pages
 const Login = () => import('@/views/pages/Login.vue');
-const PasswordForceChange = () => import('@/views/pages/PasswordForceChange.vue');
+const PasswordForceChange = () =>
+  import('@/views/pages/PasswordForceChange.vue');
 const Page404 = () => import('@/views/pages/Page404.vue');
 
 function configRoutes() {
